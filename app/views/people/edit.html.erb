@@ -1,0 +1,8 @@
+<h1><%= @person.new_record? ? "New" : "Editing"%> person</h1>
+<%= render 'form' %>
+<%= link_to 'Back', people_path %>
+<%- if !@person.new_record? %>
+  <br/>
+  <br/>
+  <p><%= button_to 'Remove this person', @person, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<%- end %>

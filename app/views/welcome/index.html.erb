@@ -1,0 +1,23 @@
+<h2>Create a new ticket</h2>
+
+<%= link_to "Create a ticket", new_ticket_path %>
+
+<h2>Assigned tickets</h2>
+
+<%- @people_with_tickets.each do |persons|%>
+	<%= person.name %>'s tickets
+	<ul>
+		<%- person.tickets.each do |ticket| %>
+			<li>
+				<%= link_to ticket.title, ticket_path(ticket) %>
+			</li>
+		<%- end %>
+	</ul>
+<%- end %>
+
+<h2>Manage people <%= link_to "+", new_person_path %></h2>
+<ul>
+	<%- @people.each do |person|%>
+		<li><%= link_to person.name, edit_person_path(person) %></li>
+	<%- end %>
+</ul>
